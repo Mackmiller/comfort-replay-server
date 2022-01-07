@@ -1,4 +1,4 @@
-<img alt="resumes" src="job.png">
+<img alt="resumes" src="imgs/job.png">
 
 # Cover Letter Inspo
 
@@ -19,16 +19,16 @@ As a user, I want to:
 
 Below shows the frontend (pink) and backend (yellow) interactions, from left (input) to right (output)
 
-<img alt="wireframes" src="wireframe.png">
-<img alt="post its" src="notes.png">
+<img alt="wireframes" src="imgs/wireframe.png">
+<img alt="post its" src="imgs/notes.png">
 
 ## Wireframes
 
-<img alt="site design" src="wireframes2.png">
+<img alt="site design" src="imgs/wireframes2.png">
 
 ## Entity Relationship Diagram
 
-<img alt="erd" src="erd2.png">
+<img alt="erd" src="imgs/erd2.png">
 
 ## Natural language processing
 
