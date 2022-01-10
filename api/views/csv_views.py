@@ -53,9 +53,33 @@ class RegisterData(generics.ListCreateAPIView):
             # view first data row to see if all above code works
             print(df_pandemic.head(1))
 
-            #convert to json
-            data = df_pandemic.to_json(orient = 'records', date_format='iso', date_unit='s')
-            return JsonResponse(data, safe=False)
+            # assign Start Time content to new columns weekday and hour
+            df_pandemic['weekday'] = df_pandemic['Start Time'].dt.weekday
+            df_pandemic['hour'] = df_pandemic['Start Time'].dt.hour
+
+            df_pandemic['hour'] = pd.Categorical(df_pandemic['hour'], categories=
+            [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],
+            ordered=True)
+
+            #count the rows that have each hour as their value
+            df_by_hour = df_pandemic['hour'].value_counts()
+
+            # sort index using our categorical, 0-23
+            df_by_hour = df_by_hour.sort_index()
+            # convert daily data to json
+            data3 = df_by_hour.to_json()
+
+
+            # get top ten shows
+            top_ten = df_pandemic['title_new'].value_counts().head(10)
+            # convert show data to json
+            data2 = top_ten.to_json()
+
+            #convert whole file to json
+            # data = df_pandemic.to_json(orient = 'records', date_format='iso', date_unit='s')
+
+            # return JsonResponse(data, safe=False)
+            return JsonResponse((data2,data3), safe=False)
       
 
 
