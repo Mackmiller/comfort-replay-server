@@ -67,13 +67,13 @@ class RegisterData(generics.ListCreateAPIView):
             # sort index using our categorical, 0-23
             df_by_hour = df_by_hour.sort_index()
             # convert daily data to json
-            data3 = df_by_hour.to_json()
+            data3 = df_by_hour.to_json(orient="index")
 
 
             # get top ten shows
             top_ten = df_pandemic['title_new'].value_counts().head(10)
             # convert show data to json
-            data2 = top_ten.to_json()
+            data2 = top_ten.to_json(orient="index")
 
             #convert whole file to json
             # data = df_pandemic.to_json(orient = 'records', date_format='iso', date_unit='s')
