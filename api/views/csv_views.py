@@ -2,7 +2,8 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework import generics
-from django.shortcuts import render
+from django.http import JsonResponse
+# from django.shortcuts import render
 import pandas as pd
 
 class RegisterData(generics.ListCreateAPIView):
@@ -52,11 +53,12 @@ class RegisterData(generics.ListCreateAPIView):
             # view first data row to see if all above code works
             print(df_pandemic.head(1))
 
-            mydict = {
-                "df": df_pandemic.to_html()
-            }
+            #convert to json
+            data = df_pandemic.to_json(orient = 'records', date_format='iso', date_unit='s')
+            return JsonResponse(data, safe=False)
+      
 
 
-
-        # return Response({"success": "Good job, buddy"})
-        return render(request, 'index.html', context=mydict)
+        # return JsonResponse(data, safe=False)
+        return Response({"success": "Good job, buddy"})
+        # return render(request, 'index.html', context=mydict)
