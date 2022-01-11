@@ -75,11 +75,15 @@ class RegisterData(generics.ListCreateAPIView):
             # convert show data to json
             data2 = top_ten.to_json(orient="index")
 
+            # get top show
+            top_show = df_pandemic['title_new'].value_counts().head(1)
+            data4 = top_show.to_json(orient="index")
+
             #convert whole file to json
             # data = df_pandemic.to_json(orient = 'records', date_format='iso', date_unit='s')
 
             # return JsonResponse(data, safe=False)
-            return JsonResponse((data2,data3), safe=False)
+            return JsonResponse((data2,data3, data4), safe=False)
       
 
 
