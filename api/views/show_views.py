@@ -26,11 +26,11 @@ class Shows(generics.ListCreateAPIView):
         """Create request"""
         # Add user to request data object
         # request.data['show']['owner'] = request.user.id
-        # Serialize/create show
-        show = ShowSerializer(data=request.data['show'])
+        # Serialize/create show, modified to accommodate array
+        show = ShowSerializer(data=request.data[0])
         # If the show data is valid according to our serializer...
         if show.is_valid():
-            # Save the created mango & send a response
+            # Save the created show & send a response
             show.save()
             return Response({ 'show': show.data }, status=status.HTTP_201_CREATED)
         # If the data is not valid, return a response with the errors
