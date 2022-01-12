@@ -37,7 +37,7 @@ class Shows(generics.ListCreateAPIView):
         show = ShowSerializer(data=request.data[0])
         # If the show data is valid according to our serializer...
         if show.is_valid():
-            # Save the created show & send a response
+            # save the created show & send a response
             show.save()
             return Response({ 'show': show.data }, status=status.HTTP_201_CREATED)
         # If the data is not valid, return a response with the errors

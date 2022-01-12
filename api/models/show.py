@@ -7,6 +7,8 @@ class Show(models.Model):
   # https://docs.djangoproject.com/en/3.0/ref/models/fields/
   key = models.CharField(max_length=100)
   value = models.IntegerField()
+  class Meta:
+        unique_together = ["key", "value"]
 
   def __str__(self):
     # This must return a string

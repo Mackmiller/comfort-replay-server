@@ -14,6 +14,7 @@ class ShowSerializer(serializers.ModelSerializer):
     class Meta:
         model = Show
         fields = ('key', 'value')
+        
 
 class UserSerializer(serializers.ModelSerializer):
     # This model serializer will be used for User creation
