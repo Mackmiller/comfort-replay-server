@@ -11,15 +11,22 @@ from ..serializers import ShowSerializer
 # Create your views here.
 class Shows(generics.ListCreateAPIView):
     # permission_classes=(IsAuthenticated,)
+    
+    # TEST
+    # Override the authentication/permissions classes so this endpoint
+    # is not authenticated & we don't need any permissions to access it.
+    authentication_classes = ()
+    permission_classes = ()
+
     serializer_class = ShowSerializer
     def get(self, request):
         """Index request"""
         # Get all the shows:
         shows = Show.objects.all()
-        # Filter the mangos by owner, so you can only see your owned mangos
-        # mangos = Mango.objects.filter(owner=request.user.id)
+        # Filter the shows by owner, so you can only see your owned mangos
+        # shows = Show.objects.filter(owner=request.user.id)
         # Run the data through the serializer
-        data = MangoSerializer(shows, many=True).data
+        data = ShowSerializer(shows, many=True).data
         return Response({ 'shows': data })
 
     def post(self, request):
@@ -30,7 +37,7 @@ class Shows(generics.ListCreateAPIView):
         show = ShowSerializer(data=request.data[0])
         # If the show data is valid according to our serializer...
         if show.is_valid():
-            # Save the created show & send a response
+            # save the created show & send a response
             show.save()
             return Response({ 'show': show.data }, status=status.HTTP_201_CREATED)
         # If the data is not valid, return a response with the errors
