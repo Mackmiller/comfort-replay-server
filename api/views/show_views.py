@@ -11,15 +11,22 @@ from ..serializers import ShowSerializer
 # Create your views here.
 class Shows(generics.ListCreateAPIView):
     # permission_classes=(IsAuthenticated,)
+    
+    # TEST
+    # Override the authentication/permissions classes so this endpoint
+    # is not authenticated & we don't need any permissions to access it.
+    authentication_classes = ()
+    permission_classes = ()
+
     serializer_class = ShowSerializer
     def get(self, request):
         """Index request"""
         # Get all the shows:
         shows = Show.objects.all()
-        # Filter the mangos by owner, so you can only see your owned mangos
-        # mangos = Mango.objects.filter(owner=request.user.id)
+        # Filter the shows by owner, so you can only see your owned mangos
+        # shows = Show.objects.filter(owner=request.user.id)
         # Run the data through the serializer
-        data = MangoSerializer(shows, many=True).data
+        data = ShowSerializer(shows, many=True).data
         return Response({ 'shows': data })
 
     def post(self, request):
