@@ -4,6 +4,7 @@ from rest_framework import serializers
 from .models.mango import Mango
 from .models.user import User
 from .models.show import Show
+from .models.profile import Profile
 
 class MangoSerializer(serializers.ModelSerializer):
     class Meta:
@@ -14,6 +15,11 @@ class ShowSerializer(serializers.ModelSerializer):
     class Meta:
         model = Show
         fields = ('key', 'value')
+
+class ProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Profile
+        fields = ('key', 'value', 'owner')
         
 
 class UserSerializer(serializers.ModelSerializer):
