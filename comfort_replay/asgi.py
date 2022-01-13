@@ -1,5 +1,5 @@
 """
-ASGI config for cover_letter_inspo project.
+ASGI config for comfort_replay project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'cover_letter_inspo.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'comfort_replay.settings')
 
 application = get_asgi_application()

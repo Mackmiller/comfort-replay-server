@@ -5,7 +5,7 @@ import sys
 
 
 def main():
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'cover_letter_inspo.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'comfort_replay.settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
