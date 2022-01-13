@@ -11,8 +11,8 @@ class Profile(models.Model):
       get_user_model(),
       on_delete=models.CASCADE
   )
-  # class Meta:
-  #       unique_together = ["key", "value"]
+  class Meta:
+        unique_together = ["key", "value"]
 
   def __str__(self):
     # This must return a string
