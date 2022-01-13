@@ -48,6 +48,6 @@ Coming Soon.
 ### Project screenshots
 
 <img alt="home screen" src="imgs/screenshot4.png">
-<img alt="logged in" src="imgs/screenshot3.png">
-<img alt="data visualization 1" src="imgs/screenshot1.png">
-<img alt="data visualization 2" src="imgs/screenshot2.png">
+<img alt="logged in" src="imgs/screenshot1.png">
+<img alt="data visualization 1" src="imgs/screenshot2.png">
+<img alt="data visualization 2" src="imgs/screenshot3.png">
