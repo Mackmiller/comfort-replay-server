@@ -44,3 +44,10 @@ Coming Soon.
 - add/delete comments on page display of all users' top show names/view count
 - mobile functionality
 - fine-tune user experience
+
+### Project screenshots
+
+<img alt="home screen" src="imgs/screenshot4.png">
+<img alt="logged in" src="imgs/screenshot1.png">
+<img alt="data visualization 1" src="imgs/screenshot2.png">
+<img alt="data visualization 2" src="imgs/screenshot3.png">
