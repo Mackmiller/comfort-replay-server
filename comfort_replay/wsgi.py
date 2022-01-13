@@ -1,5 +1,5 @@
 """
-WSGI config for cover_letter_inspo_template project.
+WSGI config for comfort_replay_template project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'cover_letter_inspo.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'comfort_replay.settings')
 
 application = get_wsgi_application()
