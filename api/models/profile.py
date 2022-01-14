@@ -12,7 +12,7 @@ class Profile(models.Model):
       on_delete=models.CASCADE
   )
   class Meta:
-        unique_together = ["key", "value"]
+        unique_together = ["key", "value", "owner"]
 
   def __str__(self):
     # This must return a string
