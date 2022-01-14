@@ -18,13 +18,11 @@ As a user, I want to:
 
 ## Wireframes
 
-Coming soon.
-<!-- <img alt="site design" src="imgs/wireframes2.png"> -->
+<img alt="site design" src="imgs/p4-wireframes.png">
 
 ## Entity Relationship Diagram
 
-Coming Soon.
-<!-- <img alt="erd" src="imgs/erd2.png"> -->
+<img alt="erd" src="imgs/p4.png">
 
 ## Data analysis using pandas
 
@@ -51,3 +49,65 @@ Coming Soon.
 <img alt="logged in" src="imgs/screenshot1.png">
 <img alt="data visualization 1" src="imgs/screenshot2.png">
 <img alt="data visualization 2" src="imgs/screenshot3.png">
+
+### Local deployment
+
+- In a terminal, clone this repo. Move the unzipped folder into a predetermined django environment.
+
+```sh
+git clone https://github.com/Mackmiller/comfort-replay-server.git
+```
+
+- Navigate to the repo directory
+
+```sh
+cd comfort-replay
+```
+
+- Create .env folder and add ENV=development as key value pair
+
+```sh
+touch .env
+```
+
+- Start up virtual django environment
+
+```sh
+pipenv shell
+```
+
+- Move up to your virtual environment directory. Make sure your virtual environment has several more libraries installed
+
+```sh
+pipenv install django-rest-auth django-cors-headers python-dotenv dj-database-url
+```
+
+- Move back to your project directory. Create a psql database and add to .env file with the key DB_NAME_DEV
+
+- Add a secret key to your .env using the key SECRET
+
+- Your .env should look similar to this:
+
+```sh
+ENV=development
+DB_NAME_DEV=put_name_here
+SECRET=alsdfajfljlwer8afsa3
+```
+
+- Still in your shell, run these commands for migrations and running the server:
+
+```sh
+python3 manage.py makemigrations
+python3 manage.py migrate
+python3 manage.py runserver
+```
+
+- for Part 2 of deployment, please see the client repo [here](https://github.com/Mackmiller/comfort-replay-client)
+
+## Cloud Deployment
+
+Both the server and client repos are deployed on Heroku [here](https://comfort-replay.herokuapp.com/)
+
+## Contributors
+
+- [Mackenzie Miller](https://github.com/Mackmiller)
